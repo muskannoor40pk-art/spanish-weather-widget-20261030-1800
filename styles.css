@@ -1,0 +1,87 @@
+:root {
+            --bg: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --accent: #2563eb;
+            --radius: 16px;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .widget {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 400px;
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .search-box {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 16px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .current-weather {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .temp { font-size: 3rem; font-weight: bold; }
+        .condition { color: var(--text-muted); margin-bottom: 8px; }
+
+        .forecast-section {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .scroll-container {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .item {
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .day-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .day-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f9f9f9;
+        }
