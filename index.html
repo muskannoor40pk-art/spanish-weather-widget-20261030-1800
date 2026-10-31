@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget del Tiempo</title>
+    
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="widget">
+    <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Buscar ciudad...">
+        <button id="searchBtn">Buscar</button>
+    </div>
+
+    <div class="current-weather">
+        <h1 id="cityName">Madrid, ES</h1>
+        <div class="temp" id="currentTemp">22°C</div>
+        <div class="condition" id="currentDesc">Soleado</div>
+    </div>
+
+    <div class="forecast-section">
+        <h3>Pronóstico por horas</h3>
+        <div class="scroll-container" id="hourlyForecast"></div>
+    </div>
+
+    <div class="forecast-section">
+        <h3>Próximos 5 días</h3>
+        <ul class="day-list" id="dailyForecast"></ul>
+    </div>
+</div>
+
+<script>
+    const demoData = {
+        hourly: [
+            { time: '12:00', temp: '22°C' },
+            { time: '13:00', temp: '24°C' },
+            { time: '14:00', temp: '25°C' },
+            { time: '15:00', temp: '25°C' },
+            { time: '16:00', temp: '23°C' }
+        ],
+        daily: [
+            { day: 'Mañana', min: '14°', max: '26°' },
+            { day: 'Mié', min: '15°', max: '27°' },
+            { day: 'Jue', min: '16°', max: '24°' },
+            { day: 'Vie', min: '13°', max: '22°' },
+            { day: 'Sáb', min: '12°', max: '21°' }
+        ]
+    };
+
+    function render() {
+        const hourlyEl = document.getElementById('hourlyForecast');
+        const dailyEl = document.getElementById('dailyForecast');
+
+        hourlyEl.innerHTML = demoData.hourly.map(h => `
+            <div class="item">
+                <div>${h.time}</div>
+                <strong>${h.temp}</strong>
+            </div>
+        `).join('');
+
+        dailyEl.innerHTML = demoData.daily.map(d => `
+            <li class="day-row">
+                <span>${d.day}</span>
+                <span>${d.min} / ${d.max}</span>
+            </li>
+        `).join('');
+    }
+
+    document.getElementById('searchBtn').addEventListener('click', () => {
+        const city = document.getElementById('cityInput').value;
+        if (city) {
+            document.getElementById('cityName').textContent = city;
+            alert('Buscando datos para: ' + city);
+        }
+    });
+
+    render();
+</script>
+
+</body>
+</html>
